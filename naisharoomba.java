@@ -29,7 +29,7 @@ public class Driver implements Directions {
 	 * JOptionPane.
 	 */
 
-    String wrldName = "basicRoom.wld";
+    String wrldName = "TestWorld-1.wld";
 
 	World.readWorld(wrldName);
     World.setVisible(true);
@@ -65,6 +65,9 @@ public class Driver implements Directions {
 					numBeepers++;
 					if (numBeepers > largestPile){
 						largestPile = numBeepers;
+                        largestPileStreet = roomba.street();
+                        largestPileAvenue = roomba.avenue();
+
 					}
 			}
 			if (numBeepers > 0) {
@@ -87,14 +90,10 @@ public class Driver implements Directions {
 				roomba.turnLeft();
 				roomba.turnLeft();
 				roomba.turnLeft();
+        
 		}
 
 		}
-  
-
-
-
-
 
   	/** This method displays the results of cleaning the room.  All of the info
 	 * in the pdf that describes the problem need to be displayed.  You can present
@@ -104,12 +103,9 @@ public class Driver implements Directions {
 		System.out.println("Total number of beepers = "+totalB);
 		System.out.println("Total number of piles = "+piles);
 		System.out.println("The largest pile = "+largestPile);
-		System.out.println("Average pile size = "+totalB/piles);
-		System.out.println("Percent dirty = "+piles/area*100);
-
-
-
-
+        System.out.println("The largest pile location was="+largestPileAvenue+","+largestPileStreet);
+		System.out.println("Average pile size = "+((double)totalB/piles));
+		System.out.println("Percent dirty = "+((double)piles)/(area)*100);
 
 
 
